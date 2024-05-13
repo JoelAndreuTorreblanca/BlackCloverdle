@@ -14,7 +14,7 @@
                         <a href="https://www.linkedin.com/in/joel-andreu-torreblanca-0b4247202" target="_blank">LinkedIn</a>
                     </li>
                     <li class="footer__link">
-                        <a href="https://github.com/JoelAndreuTorreblanca" target="_blank">GitHub</a>
+                        <a href="https://github.com/JoelAndreuTorreblanca/BlackCloverdle" target="_blank">GitHub</a>
                     </li>
                 </ul>
             </div>

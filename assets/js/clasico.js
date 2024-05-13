@@ -2,15 +2,13 @@ import { controller } from "./vars.js";
 import { allowedLetters, specialLetters } from "./letters.js";
 import * as tools from "./tools.js";
 
-// TODO: Hacer que la respuesta salga si pierdes, ya que una vez que la notificación se va, ya no sabes cuál era la respuesta
-
 const $tablero = document.querySelector("#tablero");
+const $tecladoMovil = document.querySelector("#teclado_mobile");
 
 let iniciamosEventos = initGame();
 
 const $input = document.querySelector("#input_try");
 const $teclas = document.querySelectorAll(".teclado__tecla");
-const $tecladoMovil = document.querySelector("#teclado_mobile");
 const $results = document.querySelector("#results");
 const $status = document.querySelector("#status");
 const $notifications = document.querySelector("#notifications");
@@ -56,6 +54,7 @@ function initGame(){
         localStorage.setItem("partida_finalizada", "false");
         document.querySelector(".tablero__fila").classList.add("active");
         localStorage.removeItem("game_content");
+        localStorage.removeItem("teclado_movil");
     
     // Si null, es la primera partida y seteamos la variable a false
     }else if(partida_finalizada === null){
@@ -73,7 +72,8 @@ function initGame(){
 
         // Si se ha recargado la página sin haber hecho un intento, es necesario poner la clase active
         const content = localStorage.getItem("game_content");
-        if(content === null){
+        const teclado_movil = localStorage.getItem("teclado_movil");
+        if(content === null && teclado_movil === null){
             document.querySelector(".tablero__fila").classList.add("active");
         }
     }
@@ -131,8 +131,6 @@ function initEvents(){
             if(!tools.isAvisoAccepted()) return;
             // Si el juego ha terminado salimos
             if($status.dataset.end == "true") return;
-            let tecla = event.target;
-            if(tecla.classList.contains("grey")) return;
             handleKeyboardClick(this.dataset.tecla);
         });
     });
@@ -514,9 +512,12 @@ function toggleHowToPlay(){
 
 function loadContent (){
     const content = localStorage.getItem("game_content");
+    const teclado_movil = localStorage.getItem("teclado_movil");
 
-    if(content !== null){
+    if(content !== null && teclado_movil !== null){
         $tablero.innerHTML = content;
+        $tecladoMovil.innerHTML = teclado_movil;
+
         // Si cargamos contenido, actualizamos número de veces adivinado del personaje
         const $n_guesses = document.querySelector("#n_guesses");
         $n_guesses.innerText = document.getElementById("veces_adivinado").value;
@@ -529,7 +530,6 @@ function loadContent (){
     return false;
 }
 
-// TODO: Hacer función para obtener el nombre del ganador por ajax y mostrarlo
 function getWinnerGame(){
     let datos = new FormData();
     let prefixController = document.getElementById("controller").value;
@@ -552,8 +552,13 @@ function getWinnerGame(){
     fetch(peticion)
     .then(promesa => promesa.json())
     .then(function (datos) {
+
         if(datos.error){
             console.error(datos.data);
+        }else{
+            const $answer = document.querySelector("#answer");
+            $answer.querySelector("strong").innerHTML = datos.data.winner_name;
+            $answer.classList.remove("hidden");
         }
     })
     .catch(function (error) {
@@ -564,4 +569,6 @@ function getWinnerGame(){
 function saveContent(){
     const content = $tablero.innerHTML;
     localStorage.setItem("game_content", content);
+    const teclado_movil = $tecladoMovil.innerHTML;
+    localStorage.setItem("teclado_movil", teclado_movil);
 }

@@ -7,7 +7,7 @@
 class Controller {
 
     public $errors;
-    private $actions = ["processTry", "addOneGuess"];
+    private $actions = ["processTry", "addOneGuess", "getWinnerName"];
 
     public function __construct(){
         $this->errors = [
@@ -67,7 +67,9 @@ class Controller {
         $winner = new Winner($id_winner);
         $p = new Personaje($winner->id_personaje);
 
-        $this->ajaxResponse(false, ["winner_name" => $p->name]);
+        $name = $p->last_name != "" ? $p->name . " " . $p->last_name : $p->name;
+
+        $this->ajaxResponse(false, ["winner_name" => $name]);
     }
 
     public function ajaxResponse(bool $error = false, array $data = []){

@@ -1,5 +1,5 @@
 <div class="tablero__footer">
-    <?php if(isset($todayWinner["veces_adivinado"]) && $todayWinner["veces_adivinado"] > 0){ ?>
+    <?php if(isset($todayWinner["veces_adivinado"])){ ?>
         <div class="character_guesses">¡<span id="n_guesses" class="n_guesses"><?= $todayWinner["veces_adivinado"] ?></span> jugadores ya lo han adivinado!</div>
     <?php } ?>
     <?php if($pagina === "infinito"){ ?>

@@ -63,7 +63,7 @@ body{
 
 .content-wrapper{
     max-width: min(700px, 100%);
-    margin: 20px auto 0;
+    margin: 0 auto;
     padding: 0 15px;
 }
 
@@ -107,6 +107,13 @@ a,
 .button{
     cursor: pointer;
     transition: all .3s ease-out;
+}
+
+.modo_juego{
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    font-family: "Old-London";
 }
 
 #results{
@@ -296,6 +303,7 @@ a,
         font-size: 16px;
         font-weight: 600;
         @include flexcentering();
+        cursor: pointer;
         -webkit-touch-callout: none; /* iOS Safari */
         -webkit-user-select: none; /* Safari */
         -khtml-user-select: none; /* Konqueror HTML */
@@ -303,10 +311,6 @@ a,
         -ms-user-select: none; /* Internet Explorer/Edge */
         user-select: none; /* Non-prefixed version, currently
                             supported by Chrome, Edge, Opera and Firefox */
-
-        &:not(&.grey){
-            cursor: pointer;
-        }
 
         &--long{
             width: 50px;

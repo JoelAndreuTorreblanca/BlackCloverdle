@@ -3,13 +3,11 @@ import { allowedLetters, specialLetters } from "./letters.js";
 import * as tools from "./tools.js";
 
 const $tablero = document.querySelector("#tablero");
+const $tecladoMovil = document.querySelector("#teclado_mobile");
 let id_winner = document.querySelector("#id_winner").value;
 let winner_length = document.querySelector("#input_try").dataset.maxlength;
 
 let iniciamosEventos = initGame();
-
-// TODO: Que la funcionalidad de guardar contenido englobe también al teclado de móvil,
-// actualmente cuando se recarga en móvil, no se consevan los colores del teclado (en ambos modos de juego)
 
 // TODO: Hacer que se guarde cuantas veces se han jugado los personajes en cada modo (Al menos se debe haber hecho un intento)
 
@@ -17,7 +15,6 @@ let iniciamosEventos = initGame();
 
 const $input = document.querySelector("#input_try");
 const $teclas = document.querySelectorAll(".teclado__tecla");
-const $tecladoMovil = document.querySelector("#teclado_mobile");
 const $results = document.querySelector("#results");
 const $status = document.querySelector("#status");
 const $notifications = document.querySelector("#notifications");
@@ -71,7 +68,8 @@ function initGame(){
 
         // Si se ha recargado la página sin haber hecho un intento, es necesario poner la clase active
         const content_infinito = localStorage.getItem("game_content_infinito");
-        if(content_infinito === null){
+        const teclado_movil_infinito = localStorage.getItem("teclado_movil_infinito");
+        if(content_infinito === null && teclado_movil_infinito === null){
             document.querySelector(".tablero__fila").classList.add("active");
         }
     }
@@ -130,8 +128,6 @@ function initEvents(){
             if(!tools.isAvisoAccepted()) return;
             // Si el juego ha terminado salimos
             if($status.dataset.end == "true") return;
-            let tecla = event.target;
-            if(tecla.classList.contains("grey")) return;
             handleKeyboardClick(this.dataset.tecla);
         });
     });
@@ -481,9 +477,11 @@ function toggleHowToPlay(){
 
 function loadContent (){
     const content_infinito = localStorage.getItem("game_content_infinito");
+    const teclado_movil_infinito = localStorage.getItem("teclado_movil_infinito");
 
-    if(content_infinito !== null){
+    if(content_infinito !== null && teclado_movil_infinito !== null){
         $tablero.innerHTML = content_infinito;
+        $tecladoMovil.innerHTML = teclado_movil_infinito;
         return true;
     }
 
@@ -493,6 +491,8 @@ function loadContent (){
 function saveContent(){
     const content_infinito = $tablero.innerHTML;
     localStorage.setItem("game_content_infinito", content_infinito);
+    const teclado_movil_infinito = $tecladoMovil.innerHTML;
+    localStorage.setItem("teclado_movil_infinito", teclado_movil_infinito);
 }
 
 function updateFilaStyle(){
