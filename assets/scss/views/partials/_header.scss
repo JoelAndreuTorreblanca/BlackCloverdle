@@ -12,6 +12,7 @@ header#header{
         top: calc(50% + 4px);
         left: 10px;
         transform: translateY(-50%);
+        @include noselection();
 
         &.open{
             .menu__close{
@@ -79,6 +80,7 @@ header#header{
             font-weight: 400;
             display: inline-blocK;
             width: calc((100% - 10px) / 2);
+            @include noselection();
         }
     }
 }

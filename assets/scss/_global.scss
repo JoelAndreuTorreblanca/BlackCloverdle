@@ -114,6 +114,7 @@ a,
     font-size: 35px;
     text-align: center;
     font-family: "Old-London";
+    margin-bottom: 10px,
 }
 
 #results{
@@ -171,6 +172,7 @@ a,
 .svg-icon{
     display: inline-block;
     width: 50px;
+    @include noselection();
 
     svg{
         transition: all .3s ease-out;
@@ -193,7 +195,7 @@ a,
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px 25px;
-        margin-bottom: 20px;
+        margin-bottom: 12px;
 
         #answer{
             width: 100%;
@@ -304,13 +306,7 @@ a,
         font-weight: 600;
         @include flexcentering();
         cursor: pointer;
-        -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-        -khtml-user-select: none; /* Konqueror HTML */
-        -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; /* Non-prefixed version, currently
-                            supported by Chrome, Edge, Opera and Firefox */
+        @include noselection();
 
         &--long{
             width: 50px;

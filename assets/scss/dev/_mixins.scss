@@ -4,6 +4,16 @@
     align-items: center;
 }
 
+@mixin noselection(){
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
+}
+
 @function fluid($min_size, $max_size, $min_view, $max_view){
     @return calc(#{$min_size}px + ($max_size - $min_size) * ((100vw - #{$min_view}px) / ($max_view - $min_view)));
 }

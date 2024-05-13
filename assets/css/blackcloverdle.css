@@ -206,6 +206,13 @@ header#header .menu_mobile {
   top: calc(50% + 4px);
   left: 10px;
   transform: translateY(-50%);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+ supported by Chrome, Edge, Opera and Firefox */
 }
 header#header .menu_mobile.open .menu__close {
   display: initial;
@@ -258,6 +265,13 @@ header#header .menu li {
   font-weight: 400;
   display: inline-blocK;
   width: calc((100% - 10px) / 2);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+ supported by Chrome, Edge, Opera and Firefox */
 }
 
 @media screen and (min-width: 768px) {
@@ -530,6 +544,7 @@ a,
   font-size: 35px;
   text-align: center;
   font-family: "Old-London";
+  margin-bottom: 10px;
 }
 
 #results.showing-stats-modal {
@@ -573,6 +588,13 @@ a,
 .svg-icon {
   display: inline-block;
   width: 50px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+ supported by Chrome, Edge, Opera and Firefox */
 }
 .svg-icon svg {
   transition: all 0.3s ease-out;
@@ -592,7 +614,7 @@ a,
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px 25px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 .tablero__heading #answer {
   width: 100%;
