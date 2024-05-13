@@ -13,6 +13,7 @@
     // Calculamos el ancho que tendrán las letras
     $letras = strlen($personaje->name);
 
+
     echo "<style>";
     echo ".tablero .tablero__fila{
         grid-template-columns: repeat({$letras}, minmax(28px, 50px));

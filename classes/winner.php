@@ -30,12 +30,15 @@ class winner extends Objeto{
                 $maxnum = count($personajes) - 1;
                 $index = $this->getRandom(0, $maxnum);
                 $id_p = $personajes[$index]["id_personaje"];
-                // Si el personaje seleccionado se ha jugado en los últimos 3 días, seleccionamos otro
-                while(in_array($id_p, $last3)){
-                    $index = $this->getRandom(0, $maxnum);
-                    $id_p = $personajes[$index]["id_personaje"];
+
+                if(isset($last3)){
+                    // Si el personaje seleccionado se ha jugado en los últimos 3 días, seleccionamos otro
+                    while(in_array($id_p, $last3)){
+                        $index = $this->getRandom(0, $maxnum);
+                        $id_p = $personajes[$index]["id_personaje"];
+                    }
                 }
-                
+
                 $this->id_game_mode = $id_mode;
                 $this->id_personaje = $id_p;
                 $this->veces_adivinado = 0;
@@ -62,10 +65,13 @@ class winner extends Objeto{
                 $maxnum = count($personajes) - 1;
                 $index = $this->getRandom(0, $maxnum);
                 $id_p = $personajes[$index]["id_personaje"];
-                // Si el personaje seleccionado se ha jugado en los últimos 3 días, seleccionamos otro
-                while(in_array($id_p, $last3)){
-                    $index = $this->getRandom(0, $maxnum);
-                    $id_p = $personajes[$index]["id_personaje"];
+
+                if(isset($last3)){
+                    // Si el personaje seleccionado se ha jugado en los últimos 3 días, seleccionamos otro
+                    while(in_array($id_p, $last3)){
+                        $index = $this->getRandom(0, $maxnum);
+                        $id_p = $personajes[$index]["id_personaje"];
+                    }
                 }
                 
                 $this->id_game_mode = $id_mode;
@@ -95,7 +101,7 @@ class winner extends Objeto{
             if (!$resultado) return null;
             $chars = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             //fetch devuelve resultado o false si no existe el char
-            if($chars == false) return null;
+            if($chars == false || (is_array($chars) && count($chars) <= 0)) return null;
 
             // Preparamos el array para devolver únicamente los id's
             $return = [];
