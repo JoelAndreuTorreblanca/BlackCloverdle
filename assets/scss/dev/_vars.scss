@@ -1,0 +1,35 @@
+// Variables de pantalla
+$s-mobile: 575px;
+$mobile: 768px;
+$desktop: 992px;
+
+// Colores generales
+$blanco: #FFF;
+$negro1: #000;
+$negro2: #121314;
+$gris1: #27292b;
+$amarillo: #dbb713;
+$amarillo_texto: #f7ca05;
+
+// Colores de los modos de juego
+$verde: #2cad2c;
+$verde_texto: #16eb16;
+$naranja: #a35232;
+$gris2: #5c5c5c;
+$gris3: #555;
+$rojo: #a12929;
+$rojo_texto: #e91818;
+
+// Colores léxicos
+$negro-juego: $negro2;
+$texto-negro: $negro1;
+$texto-blanco: $blanco;
+$gris-oscuro: $gris1;
+$gris-clasico: $gris2;
+$gris-atributos: $gris3;
+// Enlaces
+$color-enlaces: $amarillo;
+$color-enlaces-hover: $amarillo;
+
+// Fuentes
+$london: "Old-London";

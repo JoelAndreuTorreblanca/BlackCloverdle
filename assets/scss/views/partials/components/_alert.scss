@@ -1,0 +1,58 @@
+.alert{
+    background-color: $negro2;
+    padding: 15px 20px 15px 40px;
+    margin-bottom: 12px;
+    position: relative;
+    width: 0%;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all .3s ease-out;
+    cursor: pointer;
+    
+    &.open{
+        width: 100%;
+        max-width: 100%;
+        padding-left: 40px;
+        padding-right: 20px;
+    }
+
+    &::before{
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 5px;
+        left: 0;
+        top: 0;
+        background-color: $gris2;
+    }
+
+    &:last-child{
+        margin-bottom: 25px;
+    }
+    
+    &__info{
+        color: $amarillo_texto;
+        
+        &::before{
+            background-color: $amarillo_texto;
+        }
+    }
+
+    &__success{
+        color: $verde_texto;
+
+        &::before{
+            background-color: $verde_texto;
+        }
+    }
+
+    &__danger{
+        color: $rojo_texto;
+
+        &::before{
+            background-color: $rojo_texto;
+        }
+    }
+}

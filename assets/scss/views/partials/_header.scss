@@ -1,0 +1,96 @@
+header#header{
+    padding: 20px 15px;
+    position: relative;
+    z-index: 5;
+
+    .content-wrapper{
+        margin: 0 auto;
+    }
+
+    .menu_mobile{
+        position: absolute;
+        top: calc(50% + 4px);
+        left: 10px;
+        transform: translateY(-50%);
+
+        &.open{
+            .menu__close{
+                display: initial;
+            }
+            .menu__open{
+                display: none;
+            }
+        }
+
+        .svg-icon{
+            width: 38px;
+            cursor: pointer;
+        }
+
+        .menu__close{
+            display: none;
+        }
+    }
+
+    .wrapper{
+        #game-title{
+            text-align: center;
+            font-size: clamp(36px, fluid(36, 75, 375, 768), 75px);
+            font-weight: 400;
+            line-height: 1;
+        }
+    }
+
+    .menu{
+        position: absolute;
+        top: calc(100% + 15px);
+        left: 0;
+        background-color: $negro2;
+        min-width: 300px;
+        border-radius: 15px;
+        border-top-left-radius: 0px;
+        z-index: 81;
+        
+        // For slideUp and slideDown
+        height: 0px;
+        overflow: hidden;
+        transition: all .3s ease-out;
+        
+        &__wrapper{
+            padding: 25px 20px;
+        }
+
+        &__modos{
+            margin-bottom: 33px;
+        }
+
+        a{
+            padding: 6px 0;
+        }
+
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        li{
+            font-size: 16px;
+            font-weight: 400;
+            display: inline-blocK;
+            width: calc((100% - 10px) / 2);
+        }
+    }
+}
+
+@media screen and (min-width: $mobile){
+    header#header{
+        .wrapper{
+            position: relative;
+        }
+
+        .menu_mobile{
+            left: 45px;
+        }
+    }
+}

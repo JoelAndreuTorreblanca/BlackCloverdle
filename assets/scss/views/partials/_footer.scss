@@ -1,0 +1,24 @@
+footer#footer{
+    margin: 120px 0 0;
+    text-align: center;
+    padding: 10px 15px 20px;
+    background-color: $negro2;
+}
+
+.footer{
+    &__body{
+        margin-bottom: 80px;
+        display: flex;
+        gap: 20px;
+    }
+
+    &__links{
+        width: calc((100% - 20px) / 2);
+    }
+
+    &__link{
+        &:not(:last-child){
+            margin-bottom: 8px;
+        }
+    }
+}

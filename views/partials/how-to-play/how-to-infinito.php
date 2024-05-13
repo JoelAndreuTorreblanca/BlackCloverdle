@@ -1,0 +1,1 @@
+<?php require_once PARTIALS_DIR . "how-to-play/how-to-clasico.php";

@@ -1,0 +1,114 @@
+.btn{
+    appearance: none;
+    @include flexcentering();
+    border: solid 2px;
+    border-radius: 12px;
+    color: $blanco;
+    padding: 8px 24px 11px;
+    width: fit-content;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all .3s ease-out;
+
+    &__primary{
+        border-color: $amarillo;
+        background-color: $amarillo;
+        color: $negro2;
+
+        &--ghost{
+            color: $amarillo_texto;
+        }
+    }
+    
+    &__success{
+        border-color: $verde;
+        background-color: $verde;
+
+        &--ghost{
+            color: $verde_texto;
+        }
+    }
+    
+    &__danger{
+        border-color: $rojo;
+        background-color: $rojo;
+
+        &--ghost{
+            color: $rojo_texto;
+        }
+    }
+
+    &__wrapper{
+        justify-content: center;
+        display: flex;
+        margin-bottom: 20px;
+        padding-top: 6px;
+    }
+
+    &__primary,
+    &__success,
+    &__danger{
+        &--ghost{
+            background: transparent;
+        }
+    }
+
+    &::before{
+        content: unset;
+    }
+}
+
+/*
+    Responsive a partir de 992px
+*/
+@media screen and (min-width: $desktop){
+    .btn{
+
+        &__primary,
+        &__success,
+        &__danger{
+            &:hover{
+                background: transparent;
+            }
+        }
+
+        &__primary{
+            &:hover{
+                color: $amarillo_texto;
+            }
+
+            &--ghost{
+                &:hover{
+                    background-color: $amarillo;
+                    color: $negro2;
+                }
+            }
+        }
+
+        &__success{
+            &:hover{
+                color: $verde_texto;
+            }
+
+            &--ghost{
+                &:hover{
+                    background-color: $verde;
+                    color: $blanco;
+                }
+            }
+        }
+
+        &__danger{
+            &:hover{
+                color: $rojo_texto;
+            }
+
+            &--ghost{
+                &:hover{
+                    background-color: $rojo;
+                    color: $blanco;
+                }
+            }
+        }
+    }
+}

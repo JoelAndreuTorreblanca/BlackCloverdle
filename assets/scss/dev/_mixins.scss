@@ -1,0 +1,9 @@
+@mixin flexcentering(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@function fluid($min_size, $max_size, $min_view, $max_view){
+    @return calc(#{$min_size}px + ($max_size - $min_size) * ((100vw - #{$min_view}px) / ($max_view - $min_view)));
+}

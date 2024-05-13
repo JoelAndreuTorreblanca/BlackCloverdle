@@ -1,0 +1,16 @@
+// DEV
+@import "./dev/_vars";
+@import "./dev/_mixins";
+@import "./dev/_fonts";
+@import "./dev/_normalize";
+@import "./dev/_animations";
+
+// PÁGINAS
+@import "./views/partials/components/_btn";
+@import "./views/partials/components/_alert";
+@import "./views/partials/_header";
+@import "./views/partials/_footer";
+@import "./views/partials/_stats";
+@import "./views/partials/_howtoplay";
+@import "./_global";
+@import "./views/_clasico";

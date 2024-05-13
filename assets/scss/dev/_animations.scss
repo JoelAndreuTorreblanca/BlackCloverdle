@@ -1,0 +1,14 @@
+.blink{
+    animation: 1.5s blink infinite ease-in-out;
+}
+
+@keyframes blink{
+    0%,
+    25%{
+        background-color: $amarillo;
+    }
+
+    75%{
+        background-color: $negro2;
+    }
+}
