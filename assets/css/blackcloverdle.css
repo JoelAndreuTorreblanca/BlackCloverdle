@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Old-London";
   src: url("../fonts/OldLondon/OldLondon.ttf") format("truetype"), url("../fonts/OldLondon/OldLondonAlternate.ttf") format("truetype");
+  font-display: swap;
 }
 * {
   padding: 0;
@@ -544,6 +545,7 @@ a,
   font-size: 35px;
   text-align: center;
   font-family: "Old-London";
+  font-weight: 400;
   margin-bottom: 10px;
 }
 
