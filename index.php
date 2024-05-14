@@ -49,15 +49,16 @@
             
         // Si la página es una de las válidas
         } else {
-            // Título que se puede poner como h1 en las páginas, de momento no está implementado
             $tituloPestanya = ucwords("BlackCloverdle - " . $pagina);
 
             switch ($pagina) {
                 case "clasico":
                     $contenido = PAGES_DIR . "{$pagina}.php";
                     $ruta_js = JS_DIR . "{$pagina}.js";
+                    $tituloPestanya = "BlackCloverdle - Clásico";
                     break;
                 case "atributos":
+                    // No implementado
                     $contenido = PAGES_DIR . "{$pagina}.php";
                     $ruta_js = JS_DIR . "{$pagina}.js";
                     break;
@@ -66,6 +67,7 @@
                     $ruta_js = JS_DIR . "{$pagina}.js";
                     break;
                 case "login":
+                    // No implementado
                     $contenido = PAGES_DIR . "{$pagina}.php";
                     $ruta_js = JS_DIR . "{$pagina}.js";
                     break;
