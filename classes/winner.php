@@ -17,6 +17,11 @@ class winner extends Objeto{
         // Establecemos los winners de los modos pasados
         if(count($modes) > 0){
             foreach($modes as $id_mode){
+                // Si ya existe un ganador para hoy, saltamos.
+                // Esto se hace así por que el hosting no permite decidir el minuto y hora exacta de ejecución del cron
+                $todayWinner = $this->getTodaysWinner($id_mode);
+                if(isset($todayWinner)) continue;
+
                 $last3 = $this->last3Personajes($id_mode);
                 $gm = new Game_Mode($id_mode);
                 $personajes = [];
@@ -42,7 +47,7 @@ class winner extends Objeto{
                 $this->id_game_mode = $id_mode;
                 $this->id_personaje = $id_p;
                 $this->veces_adivinado = 0;
-                $this->day = $this->today();;
+                $this->day = $this->today();
                 
                 $this->add();
                 $this->id = NULL;
@@ -53,6 +58,12 @@ class winner extends Objeto{
 
             foreach($modos as $modo){
                 $id_mode = $modo["id_game_mode"];
+                
+                // Si ya existe un ganador para hoy, saltamos.
+                // Esto se hace así por que el hosting no permite decidir el minuto y hora exacta de ejecución del cron
+                $todayWinner = $this->getTodaysWinner($id_mode);
+                if(isset($todayWinner)) continue;
+                
                 $last3 = $this->last3Personajes($id_mode);
                 $personajes = [];
                 

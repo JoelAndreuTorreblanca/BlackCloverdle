@@ -6,7 +6,7 @@
     */
 
     $winner = new Winner();
-    // $winner->setWinners([1]);
+    $winner->setWinners([1]);
     $todayWinner = $winner->getTodaysWinner(1);
     $personaje = new Personaje($todayWinner["id_personaje"]);
 
