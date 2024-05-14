@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="<?= CSS_DIR ?>blackcloverdle.css"/>
         <?php require_once PARTIALS_DIR . "meta.php";?>
         <title><?= $tituloPestanya ?? "BlackCloverdle" ?></title>
+        <link rel="icon" href="<?= IMG_DIR . "favicon.png" ?>">
     </head>
 <body id="<?= $pagina ?>">
     <main>
