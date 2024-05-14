@@ -6,6 +6,9 @@
                     <li class="footer__link">
                         <a href="mailto:joelandreu00@gmail.com" target="_blank">Contactar o notificar un error</a>
                     </li>
+                    <li class="footer__link">
+                        <a href="https://blackcloverdle.joelandreu.es/config/sitemap.xml" target="_blank">Sitemap</a>
+                    </li>
                 </ul>
             </div>
             <div class="footer__links">
