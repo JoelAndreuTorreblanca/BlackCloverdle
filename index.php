@@ -26,7 +26,7 @@
         die;
     }
 
-    $paginasValidas = ["clasico", "atributos", "infinito", "login"];
+    $paginasValidas = ["clasico", "infinito"];
 
     $pagina = "clasico";
     // Almacena la pag que se mostrará, por defecto:
@@ -46,6 +46,8 @@
 
             $contenido = PAGES_DIR . "404.php";
             $tituloPestanya = "Página no encontrada";
+            $pagina = "notfound";
+            $ruta_js = JS_DIR . "{$pagina}.js";
             
         // Si la página es una de las válidas
         } else {
@@ -75,6 +77,7 @@
                     $contenido = PAGES_DIR . "404.php";
                     $tituloPestanya = "Pagina No encontrada";
                     $pagina = "notfound";
+                    $ruta_js = JS_DIR . "{$pagina}.js";
                     break;
             }
         }
